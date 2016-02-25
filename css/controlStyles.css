@@ -1,0 +1,99 @@
+/*!
+*date:2016-02-18;
+*/
+html,body{
+	height: 100%;
+	background-color: #fff;
+}
+h1, h2, h3, h4, h5, h6 {
+	text-transform: uppercase;
+}
+section{
+	padding-bottom: 25px;
+}
+/*控件*/
+.index_acount{
+	padding-top: 50px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.index_acount label{
+	font-size: 24px;
+	padding-top: 0px !important;
+}
+.index_acount input{
+	font-size: 20px;
+}
+/*自适应底部*/
+.wrap{
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -60px;
+}
+.push,.footer{
+	height: 60px;
+}
+.footer{
+	background-color: #f5f5f5;
+}
+ /* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    .footer {
+		padding-left: 20px;
+		padding-right: 20px;
+    }
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+.wrap > .container {
+	padding-top: 60px;
+}
+.container > .credit {
+	margin: 20px 0;
+}
+/*margin*/
+.no-btm-margin{
+	margin-bottom: 0px;
+}
+.no-top-margin{
+	margin-top: 0px;
+}
+.tab-content{
+	min-height: 282px;
+	max-height: 400px;
+	padding-top: 25px;
+	padding-right: 40px;
+	padding-left: 20px;
+	margin-bottom: 25px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+/*color*/
+.white {
+	color:#fff;
+}
+.bg-gray{
+	background-color: #eee;
+}
+.bg-logo{
+	margin-bottom: 25px;
+	text-align: center;
+}
+.bg-logo>img{
+	width: 90%;
+	min-height: 300px;
+	max-height: 400px;
+	min-width: 300px;
+	max-width: 400px;
+	margin: 0px auto;
+}
+@media (max-width: 767px) {
+    .bg-logo>img {
+		width: 300px;
+		height: 300px;
+    }
+}
