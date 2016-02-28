@@ -6,19 +6,11 @@
 
 <title>iScroll demo: simple</title>
 
+<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
 <script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/test.js"></script>
 
-<script type="text/javascript">
 
-var myScroll;
-
-function loaded () {
-	myScroll = new IScroll('#wrapper', { mouseWheel: true });
-}
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
-</script>
 
 <style type="text/css">
 * {
@@ -43,7 +35,7 @@ body {
 	overflow: hidden; /* this is important to prevent the whole page to bounce */
 }
 
-#header {
+.scroll_head {
 	position: absolute;
 	z-index: 2;
 	top: 0;
@@ -59,7 +51,7 @@ body {
 	font-weight: bold;
 }
 
-#footer {
+.scroll_foot {
 	position: absolute;
 	z-index: 2;
 	bottom: 0;
@@ -71,7 +63,7 @@ body {
 	border-top: 1px solid #444;
 }
 
-#wrapper {
+.scroll_content {
 	position: absolute;
 	z-index: 1;
 	top: 45px;
@@ -82,7 +74,7 @@ body {
 	overflow: hidden;
 }
 
-#scroller {
+.scroll_content>div {
 	position: absolute;
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -104,7 +96,7 @@ body {
 	text-size-adjust: none;
 }
 
-#scroller ul {
+.scroll_content>div ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -112,7 +104,7 @@ body {
 	text-align: left;
 }
 
-#scroller li {
+.scroll_content>div li {
 	padding: 0 10px;
 	height: 40px;
 	line-height: 40px;
@@ -124,11 +116,11 @@ body {
 
 </style>
 </head>
-<body onload="loaded()">
-<div id="header">iScroll</div>
+<body>
+<div class="scroll_head">iScroll</div>
 
-<div id="wrapper">
-	<div id="scroller">
+<div class="scroll_content" id="test">
+	<div class="scroller">
 		<ul>
 			<li>Pretty row 1</li>
 			<li>Pretty row 2</li>
@@ -184,7 +176,7 @@ body {
 	</div>
 </div>
 
-<div id="footer"></div>
+<div class="scroll_foot"></div>
 
 </body>
 </html>
