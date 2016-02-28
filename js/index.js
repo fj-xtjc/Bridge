@@ -30,7 +30,6 @@ $(document).ready(function(){
 	}
 	window.onload=CheckCookie();
 	$("button[name='btn_login']").click(function(){
-
 		$.ajax({
 			type:"get",
 			async:false,
@@ -48,7 +47,7 @@ $(document).ready(function(){
 						$.setCookie("password",$("input[name='Lpassword']").val());
 						$.setCookie("checkbox_status","checked");
 					}
-				alert("登录成功");
+				location.href = "newGame.html?";
 			},
 			error:function(){
 				alert("失败");
@@ -72,6 +71,7 @@ $(document).ready(function(){
 				success: function (result) {
 					if (result.result == "success")
 						alert("玩家创建成功");
+						location.href = "#";
 					else if (result.result == "username exist")
 						alert("玩家已经存在");
 					else {

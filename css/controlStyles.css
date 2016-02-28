@@ -12,16 +12,16 @@ section{
 	padding-bottom: 25px;
 }
 /*控件*/
-.index_acount{
+.index_acount,.index_main{
 	padding-top: 50px;
 	padding-left: 15px;
 	padding-right: 15px;
 }
-.index_acount label{
+.index_acount label,.index_main label{
 	font-size: 24px;
 	padding-top: 0px !important;
 }
-.index_acount input{
+.index_acount input,.index_main input{
 	font-size: 20px;
 }
 /*自适应底部*/
