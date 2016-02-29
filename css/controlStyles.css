@@ -4,6 +4,7 @@
 html,body{
 	height: 100%;
 	background-color: #fff;
+	-ms-touch-action: none;
 }
 h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
@@ -12,16 +13,16 @@ section{
 	padding-bottom: 25px;
 }
 /*控件*/
-.index_acount,.index_main{
+.index_acount,.index_newGame{
 	padding-top: 50px;
 	padding-left: 15px;
 	padding-right: 15px;
 }
-.index_acount label,.index_main label{
+.index_acount label,.index_newGame label{
 	font-size: 24px;
 	padding-top: 0px !important;
 }
-.index_acount input,.index_main input{
+.index_acount input,.index_newGame input{
 	font-size: 20px;
 }
 /*自适应底部*/
