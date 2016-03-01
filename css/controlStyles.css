@@ -14,7 +14,7 @@ section{
 }
 /*控件*/
 .index_acount,.index_newGame{
-	padding-top: 50px;
+	margin-top: 50px;
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -30,12 +30,14 @@ section{
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto -60px;
+	margin: 0 auto -50px;
 }
 .push,.footer{
-	height: 60px;
+	height: 50px;
 }
 .footer{
+	position: relative;
+	z-index: 1030;
 	background-color: #f5f5f5;
 }
  /* Lastly, apply responsive CSS fixes as necessary */
