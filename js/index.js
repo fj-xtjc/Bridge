@@ -69,9 +69,10 @@ $(document).ready(function(){
 				jsonp: "callbackparam",
 				jsonpCallback: "movieking",
 				success: function (result) {
-					if (result.result == "success")
+					if (result.result == "success") {
 						alert("玩家创建成功");
 						location.href = "#";
+					}
 					else if (result.result == "username exist")
 						alert("玩家已经存在");
 					else {
