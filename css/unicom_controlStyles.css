@@ -1,0 +1,73 @@
+/*!
+*date:2016-02-18;
+*/
+html,body{
+	height: 100%;
+	background-color: #fff;
+	-ms-touch-action: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	text-transform: uppercase;
+}
+section{
+	padding-bottom: 25px;
+}
+/*控件*/
+/*主页面*/
+.index_unicom>div{
+	padding:10px 20px;
+}
+.index_unicom button h3{
+	margin-top: 10px;
+	margin-bottom: 5px;
+	text-align: left;
+}
+.index_unicom button p{
+	margin: 0px;
+	text-align: left;
+	white-space: normal;
+}
+.index_unicom button .badge{
+	margin-top:13px;
+	margin-left:2px;
+}
+/*zi页面*/
+/*自适应底部*/
+.wrap{
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -50px;
+}
+.push,.footer{
+	height: 50px;
+}
+.footer{
+	position: relative;
+	z-index: 1030;
+	background-color: #f5f5f5;
+}
+ /* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    .footer {
+		padding-left: 20px;
+		padding-right: 20px;
+    }
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+.wrap > .container {
+	padding-top: 60px;
+}
+.container > .credit {
+	margin: 15px 0;
+}
+/*margin*/
+.no-btm-margin{
+	margin-bottom: 0px;
+}
+.no-top-margin{
+	margin-top: 0px;
+}
