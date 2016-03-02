@@ -13,6 +13,13 @@ section{
 	padding-bottom: 25px;
 }
 /*控件*/
+.app_Logo{
+	height: 80px;
+}
+.QR_Code{
+	height: 80px;
+	margin:5px 10px;
+}
 /*主页面*/
 .index_unicom>div{
 	padding:10px 20px;
@@ -31,7 +38,10 @@ section{
 	margin-top:13px;
 	margin-left:2px;
 }
-/*zi页面*/
+/*子页面*/
+.Style_row{
+	/*需要添加样式*/
+}
 /*自适应底部*/
 .wrap{
 	min-height: 100%;
@@ -71,3 +81,4 @@ section{
 .no-top-margin{
 	margin-top: 0px;
 }
+/*color*/
