@@ -42,6 +42,9 @@ section{
 .Style_row{
 	/*需要添加样式*/
 }
+.carousel img{
+	margin: 0px auto;
+}
 /*自适应底部*/
 .wrap{
 	min-height: 100%;
