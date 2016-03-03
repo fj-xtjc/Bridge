@@ -1,9 +1,6 @@
 /*
 *date:2016-2-22
 */
-function Product_Html(product_num){
-
-}
 $(document).ready(function(){
 	//alert($.getUrlParam('page'));
 	var production=[
@@ -20,7 +17,7 @@ $(document).ready(function(){
             "logo_url":"img/HYT_LOGO.png",
             "tag":["组织会议","移动签到","电子资料"],
             "describtion":"<p>功能说明简介<br/>功能1<br/>功能2</p>",
-            "QR_url":["HYT_QR_IOS.png",""],
+            "QR_url":["HYT_QR_IOS.png","HYT_QR_Android.png"],
             "fuction_png_url":3
         },
         {
@@ -66,51 +63,40 @@ $(document).ready(function(){
     ];
 	switch ($.getUrlParam('page')) {
 		case "XSZL":
-			$("#info_title").children("h1").text(production[0].name);
-			for(var i=0;i<production[0].tag.length;i++){
-            $('<span>').addClass("badge").text(production[0].tag[i]).appendTo("#info_title");
-            }
+			Product_Html(0);
 			break;
 		case "HYT":
-			$("#info_title").children("h1").text(production[1].name);
-            for(var i=0;i<production[1].tag.length;i++) {
-                $('<span>').addClass("badge").text(production[1].tag[i]).appendTo("#info_title");
-            }
-            $("#info_logo").children("img").attr("src","img/HYT_LOGO.png");
-            $("#info_description").html(production[1].describtion);
-            $('<img>').addClass("img-rounded QR_Code").attr("src",production[1].QR_url)appendTo("#info_QR");
+			Product_Html(1);
 			break;
 		case "XFGC":
-			$("#info_title").children("h1").text(production[2].name);
-            for(var i=0;i<production[2].tag.length;i++){
-                $('<span>').addClass("badge").text(production[0].tag[i]).appendTo("#info_title");
-            }
+			Product_Html(2);
 			break;
 		case "GZZL":
-			$("#info_title").children("h1").text(production[3].name);
-            for(var i=0;i<production[3].tag.length;i++){
-                $('<span>').addClass("badge").text(production[0].tag[i]).appendTo("#info_title");
-            }
+			Product_Html(3);
 			break;
 		case "WJZS":
-			$("#info_title").children("h1").text(production[4].name);
-            for(var i=0;i<production[4].tag.length;i++){
-                $('<span>').addClass("badge").text(production[0].tag[i]).appendTo("#info_title");
-            }
+			Product_Html(4);
 			break;
 		case "QYYJ":
-			$("#info_title").children("h1").text(production[5].name);
-            for(var i=0;i<production[5].tag.length;i++){
-                $('<span>').addClass("badge").text(production[0].tag[i]).appendTo("#info_title");
-            }
+			Product_Html(5);
 			break;
 		case "ZHYY":
-			$("#info_title").children("h1").text(production[6].name);
-            for(var i=0;i<production[6].tag.length;i++){
-                $('<span>').addClass("badge").text(production[0].tag[i]).appendTo("#info_title");
-            }
+			Product_Html(6);
 			break;
 		default :
 			alert("错误");
+	}
+	//生成产品页面方法
+	function Product_Html(product_num){
+		$("#info_title").children("h1").text(production[product_num].name);
+		for(var i=0;i<production[product_num].tag.length;i++) {
+			$('<span>').addClass("badge").text(production[product_num].tag[i]).appendTo("#info_title");
+		}
+		$("#info_logo").children("img").attr("src","img/HYT_LOGO.png");
+		$("#info_description").html(production[product_num].describtion);
+		for(var i=0;i<production[product_num].QR_url.length;i++) {
+			if (production[product_num].QR_url[i]!="")
+				$('<img>').addClass("img-rounded QR_Code").attr("src", "img/" + production[product_num].QR_url[i]).appendTo("#info_QR");
+		}
 	}
 });
