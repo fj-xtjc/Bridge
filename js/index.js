@@ -33,7 +33,7 @@ $(document).ready(function(){
 		$.ajax({
 			type:"get",
 			async:false,
-			url:"http://192.168.1.102:8080/BridgeCount/Register/playerlogin.do",
+			url:"http://10.206.106.27/BridgeCount/Register/playerlogin.do",
 			data:{
 				Lusername: $("input[name='Lusername']").val(),
 				Lpassword: $("input[name='Lpassword']").val()
