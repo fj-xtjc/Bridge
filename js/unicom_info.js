@@ -3,7 +3,5 @@
 */
 $(document).ready(function(){
 	//alert($.getUrlParam('page'));
-	$("button[]").click(function(){
-		
-	});
+	
 });
