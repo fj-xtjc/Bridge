@@ -23,7 +23,7 @@ function Product_Html(product_num,product_name){
         {
             "name":"幸福工厂",
             "logo_url":"",
-            "tag":["移动考勤","经营分析"],
+            "tag":["员工娱乐","员工交流"],
             "describtion":"功能说明简介<br/>功能1<br/>功能2",
             "QR_url":["HYT_QR_IOS.png",""],
             "fuction_png_url":3
@@ -31,7 +31,7 @@ function Product_Html(product_num,product_name){
         {
             "name":"工作助理",
             "logo_url":"",
-            "tag":["移动考勤","经营分析"],
+            "tag":["手机考勤","移动办公","信息发布"],
             "describtion":"功能说明简介<br/>功能1<br/>功能2",
             "QR_url":["HYT_QR_IOS.png",""],
             "fuction_png_url":3
@@ -39,7 +39,7 @@ function Product_Html(product_num,product_name){
         {
             "name":"卫监助手",
             "logo_url":"",
-            "tag":["移动考勤","经营分析"],
+            "tag":["移动巡检","上报统计","信息反馈"],
             "describtion":"功能说明简介<br/>功能1<br/>功能2",
             "QR_url":["HYT_QR_IOS.png",""],
             "fuction_png_url":3
@@ -47,7 +47,7 @@ function Product_Html(product_num,product_name){
         {
             "name":"企业远教",
             "logo_url":"",
-            "tag":["移动考勤","经营分析"],
+            "tag":["人员管理","远程教育"],
             "describtion":"功能说明简介<br/>功能1<br/>功能2",
             "QR_url":["HYT_QR_IOS.png",""],
             "fuction_png_url":3
@@ -55,7 +55,7 @@ function Product_Html(product_num,product_name){
         {
             "name":"智慧医院",
             "logo_url":"",
-            "tag":["移动考勤","经营分析"],
+            "tag":["移动办公","院长查询","移动监控","智慧查房"],
             "describtion":"功能说明简介<br/>功能1<br/>功能2",
             "QR_url":["HYT_QR_IOS.png",""],
             "fuction_png_url":3
