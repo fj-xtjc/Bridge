@@ -9,7 +9,7 @@ function Product_Html(product_num,product_name){
             "logo_url":"",
             "tag":["移动考勤","经营分析"],
             "describtion":"功能说明简介<br/>功能1<br/>功能2",
-            "QR_url":"",
+            "QR_url":["XSZL_QR_IOS.png","XSZL_QR_Android.png"],
             "fuction_png_url":3
         },
         {
@@ -66,7 +66,7 @@ function Product_Html(product_num,product_name){
     for(var i=0;i<production[product_num].tag.length;i++) {
         $('<span>').addClass("badge").text(production[product_num].tag[i]).appendTo("#info_title");
     }
-    $("#info_logo").children("img").attr("src","img/HYT_LOGO.png");
+    $("#info_logo").children("img").attr("src","img/logo/"+product_name+"_LOGO.png");
     $("#info_description").html(production[product_num].describtion);
     $("#info_QR").html("");
     for(var i=0;i<production[product_num].QR_url.length;i++) {
