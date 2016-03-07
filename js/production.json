@@ -40,7 +40,7 @@
       "HYT_QR_IOS.png",
       ""
     ],
-    "fuction_png_url": 3
+    "fuction_png_url": 1
   },
   "GZZL": {
     "name": "工作助理",
@@ -55,7 +55,7 @@
       "HYT_QR_IOS.png",
       ""
     ],
-    "fuction_png_url": 3
+    "fuction_png_url": 2
   },
   "WJZS": {
     "name": "卫监助手",
@@ -70,7 +70,7 @@
       "HYT_QR_IOS.png",
       ""
     ],
-    "fuction_png_url": 3
+    "fuction_png_url": 1
   },
   "QYYJ": {
     "name": "企业远教",
@@ -84,7 +84,7 @@
       "HYT_QR_IOS.png",
       ""
     ],
-    "fuction_png_url": 3
+    "fuction_png_url": 1
   },
   "ZHYY": {
     "name": "智慧医院",
@@ -100,6 +100,6 @@
       "HYT_QR_IOS.png",
       ""
     ],
-    "fuction_png_url": 3
+    "fuction_png_url": 1
   }
 }
