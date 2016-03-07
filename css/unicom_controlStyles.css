@@ -15,7 +15,7 @@ section{
 }
 /*控件*/
 .header{
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	height: 80px;
 	background: url(../img/bg_black50.png);
@@ -127,8 +127,9 @@ canvas{
 	padding-bottom: 20px;
 	background-color: #f1f1f1;
 }
-.Style_row2 #info_description{
+.Style_row2 .Style_info_description{
 	background-color: #fff;
+	height: 400px;
 }
 .carousel img{
 	margin: 0px auto;
