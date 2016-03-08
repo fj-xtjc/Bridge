@@ -11,8 +11,8 @@ function Product_Html(product_name){
         success:function(production){
             $("#info_title").html("");
             $("#info_title").append('<h1 class="no-top-margin">'+production[product_name].name+'</h1>');
-            for(var i=0;i<production[product_name].tag.length;i++) {
-                $('<span>').addClass("badge").text(production[product_name].tag[i]).appendTo("#info_title");
+            for(var i= 0;i<production[product_name].tag.length;i++) {
+                $('<span>').addClass("badge").addClass("bg_badge"+i%5).text(production[product_name].tag[i]).appendTo("#info_title");
             }
             $("#info_logo").children("img").attr("src","img/logo/"+product_name+"_LOGO.png");
             $("#info_description").children("div").children("p").html(production[product_name].describtion);
