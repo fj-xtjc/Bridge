@@ -18,7 +18,7 @@ $(document).ready(function(){
 						cardsnum: $("input[name='cardsnum']").val(),
 						matchtime: $("input[name='matchtime']").val()
 					},
-					url: "http://192.168.1.105:8082/BridgeCount/NewGame/addmatch.do",
+					url: "http://10.206.106.27/BridgeCount/NewGame/addmatch.do",
 					dataType: "jsonp",
 					jsonp: "callbackparam",
 					jsonpCallback: "movieking",
