@@ -1,7 +1,7 @@
 {
   "XSZL": {
     "name": "销售助理",
-    "logo_url": "",
+    "logo_url": "XSZL_LOGO.png",
     "tag": [
       "移动考勤",
       "经营分析"
@@ -15,7 +15,7 @@
   },
   "HYT": {
     "name": "会议通",
-    "logo_url": "img/HYT_LOGO.png",
+    "logo_url": "HYT_LOGO.png",
     "tag": [
       "组织会议",
       "移动签到",
@@ -30,7 +30,7 @@
   },
   "XFGC": {
     "name": "幸福工厂",
-    "logo_url": "",
+    "logo_url": "XFGC_LOGO.png",
     "tag": [
       "员工娱乐",
       "员工交流"
@@ -44,7 +44,7 @@
   },
   "GZZL": {
     "name": "工作助理",
-    "logo_url": "",
+    "logo_url": "GZZL_LOGO.png",
     "tag": [
       "手机考勤",
       "移动办公",
@@ -59,7 +59,7 @@
   },
   "WJZS": {
     "name": "卫监助手",
-    "logo_url": "",
+    "logo_url": "WJZS_LOGO.png",
     "tag": [
       "移动巡检",
       "上报统计",
@@ -74,7 +74,7 @@
   },
   "QYYJ": {
     "name": "企业远教",
-    "logo_url": "",
+    "logo_url": "QYYJ_LOGO.png",
     "tag": [
       "人员管理",
       "远程教育"
@@ -88,7 +88,7 @@
   },
   "ZHYY": {
     "name": "智慧医院",
-    "logo_url": "",
+    "logo_url": "ZHYY_LOGO.png",
     "tag": [
       "移动办公",
       "院长查询",
