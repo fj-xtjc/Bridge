@@ -20,9 +20,17 @@ function products_btn_html(result,i){
 	'</button>').appendTo("#index_unicom");
 }
 $(document).ready(function(){
-	var bg_width = parseInt($(window).width()) - 80;
-	var bg_height = parseInt(bg_width*2/3 - 5) + "px";
-	$(".bg_unicom_app").css("height","500px");
+	$(window).resize(function() {
+	  	var bg_width = $(window).width();
+		var bg_height = bg_width*0.5;
+		if (bg_height >= $(window).height() - 80) {
+			bg_height = $(window).height() - 80;
+		};
+
+		$(".bg_unicom_app").css("height",bg_height);
+	});
+	$(window).resize();
+
 	$("#index_unicom").html("");
 	$.ajax({
 		type:"get",
