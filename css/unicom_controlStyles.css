@@ -54,56 +54,60 @@ section{
 	margin-top:13px;
 	margin-left:2px;
 }
-canvas{
-	position:absolute;
-	top: 0;
-	left:0;
-	width: 100%;
-	margin-top: 80px;
-	background-color: #d9d9d9;
-	background: url(../img/bg_canvas.jpg) no-repeat;
-	background-position: bottom right;
-	background-size: 100%;
-	background-clip: content-box;
-}
 .bg_unicom_app{
 	position: relative;
+	top: 80px;
+	background: url(../img/bg_unicom.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center bottom;
 	margin-bottom: 80px;
 	width: 100%;
-	z-index: 1;
+}
+.mg_unicom_app{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 40%;
+	height:100%;
+	background: url(../img/mg_unicom.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+.fg_unicom_app{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 30%;
+	height:30%;
+	background: url(../img/fg_unicom.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: left top;
 }
 @media (max-width: 767px) {
-	canvas{
-		max-height: 226px;
-		min-height: 100px;
-	}
 	.bg_unicom_app{
-		min-height: 226px;
+		height: 220px;
+	}
+	.fg_unicom_app{
+		
 	}
 }
 @media (min-width: 768px) and (max-width: 991px) {
-	canvas{
-		max-height: 320px;
-		min-height: 226px;
-	}
 	.bg_unicom_app{
 		min-height: 320px;
 	}
+	.fg_unicom_app{
+		
+	}
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-	canvas{
-		max-height: 420px;
-		min-height: 320px;
-	}
 	.bg_unicom_app{
 		min-height: 420px;
 	}
 }
 @media (min-width: 1200px) {
-	canvas{
-		max-height: 510px;
-		min-height: 420px;
-	}
 	.bg_unicom_app{
 		min-height: 510px;
 	}
@@ -191,6 +195,9 @@ canvas{
 	margin-top: 0px;
 }
 /*color*/
+.font_color_white{
+	color:#fff;
+}
 .bg_badge1{
 	background-color: #fff;
 }
