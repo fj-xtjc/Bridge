@@ -14,7 +14,7 @@ function Product_Html(product_name){
             for(var i= 0;i<production[product_name].tag.length;i++) {
                 $('<span>').addClass("badge").addClass("bg_badge"+i%5).text(production[product_name].tag[i]).appendTo("#info_title");
             }
-            $("#info_logo").children("img").attr("src","img/logo/"+product_name+"_LOGO.png");
+            $("#info_logo").children("img").attr("src","img/logo/"+production[product_name].logo_url);
             $("#info_description").children("div").children("p").html(production[product_name].describtion);
             $("#info_QR").html("");
             for(var i=0;i<production[product_name].QR_url.length;i++) {
@@ -33,6 +33,9 @@ function Product_Html(product_name){
                     $('<div>').addClass("item").appendTo("#carousel_img").append('<img src="img/product_pic/'+product_name+'_Pic'+ j +'.png">');
                 }
             }
+        },
+        error:function(){
+            alert("错误");
         }
     })
 }
