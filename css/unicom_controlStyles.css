@@ -5,31 +5,12 @@ html,body{
 	background-color: #fff;
 	-ms-touch-action: none;
 }
-body{
-	background-color: #303030;
-	background-image: -moz-linear-gradient(top, #303030, #fefefe); /* Firefox */
-	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #303030),color-stop(0.5,#666666), color-stop(1, #fefefe)); /* Saf4+, Chrome */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/
-
-}
 h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 }
-section{
-	padding-bottom: 25px;
-}
 /*控件*/
-.header{
-	position: absolute;
-	width: 100%;
-	height: 80px;
-	background-color:#ff6600;
-	z-index: 1050;
-}
-.header img{
-	height: 80px;
-}
 .app_Logo{
+	width: 80px;
 	height: 80px;
 }
 .QR_Code{
@@ -37,6 +18,37 @@ section{
 	margin:5px 10px;
 }
 /*主页面*/
+.bg_unicom_app{
+	position: relative;
+	width: 100%;
+	background: url(../img/bg_unicom.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	margin-bottom: 40px;
+}
+.mg_unicom_app{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 40%;
+	height:100%;
+	background: url(../img/mg_unicom.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+.fg_unicom_app{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 30%;
+	height:30%;
+	background: url(../img/fg_unicom.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
 .index_unicom>div{
 	padding:10px 20px;
 }
@@ -52,71 +64,12 @@ section{
 }
 .index_unicom button .badge{
 	margin-top:13px;
-	margin-left:2px;
 }
-.bg_unicom_app{
-	position: relative;
-	top: 80px;
-	background: url(../img/bg_unicom.jpg);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	margin-bottom: 80px;
-	width: 100%;
-}
-.mg_unicom_app{
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-	width: 40%;
-	height:100%;
-	background: url(../img/mg_unicom.png);
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	background-position: right bottom;
-}
-.fg_unicom_app{
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	width: 30%;
-	height:30%;
-	background: url(../img/fg_unicom.png);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-position: left top;
-}
-@media (max-width: 767px) {
-	.bg_unicom_app{
-		height: 220px;
-	}
-	.fg_unicom_app{
-		
-	}
-}
-@media (min-width: 768px) and (max-width: 991px) {
-	.bg_unicom_app{
-		min-height: 320px;
-	}
-	.fg_unicom_app{
-		
-	}
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-	.bg_unicom_app{
-		min-height: 420px;
-	}
-}
-@media (min-width: 1200px) {
-	.bg_unicom_app{
-		min-height: 510px;
-	}
-}
+
 /*子页面*/
 .Style_container{
-	/*需要添加样式*/
 	border: 3px solid #000;
-	padding: 0;
+	padding: 0 0 20px 0;
 	margin-bottom: 30px;
 	background-color: #cccccc;
 }
@@ -149,42 +102,50 @@ section{
 	margin: 0px auto;
 	height: 500px;
 }
-.bg_unicom_app_info .badge{
-	margin-right: 5px;
-}
 .bg_unicom_app_info_top{
-	height: 120px;
+	height: 40px;
 }
-/*自适应底部*/
-.wrap{
+/*自适应主要布局*/
+html,body,.wrap{height: 100%;}
+body>.wrap{
+	height: auto;
 	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -50px;
+	background-color: #303030;
+	background-image: -moz-linear-gradient(top, #303030, #fefefe); /* Firefox */
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #303030),color-stop(0.5,#666666), color-stop(1, #fefefe)); /* Saf4+, Chrome */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#303030', endColorstr='#666666', GradientType='0'); /* IE*/
 }
-.push,.footer{
-	height: 50px;
+.header{
+	width: 100%;
+	height: 80px;
+	background-color:#ff6600;
+	z-index: 1050;
 }
+.header img{
+	height: 80px;
+}
+.main{
+	padding-bottom: 50px;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
 .footer{
 	position: relative;
-	z-index: 1030;
-	background-color: #f5f5f5;
+	margin-top: -50px;
+	height: 50px;
+	clear: both;
 }
- /* Lastly, apply responsive CSS fixes as necessary */
-@media (max-width: 767px) {
-    .footer {
-		padding-left: 20px;
-		padding-right: 20px;
-    }
-}
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-.wrap > .container {
-	padding-bottom: 30px;
-}
-.container > .credit {
+.footer .credit {
 	margin: 15px 0;
 }
 /*margin*/
@@ -198,18 +159,18 @@ section{
 .font_color_white{
 	color:#fff;
 }
+.bg_badge0{
+	background-color: #4fc5c7;
+}
 .bg_badge1{
-	background-color: #fff;
+	background-color: #97ec71;
 }
 .bg_badge2{
-	background-color: #fff;
+	background-color: #dbf977;
 }
 .bg_badge3{
-	background-color: #fff;
+	background-color: #de9dd6;
 }
 .bg_badge4{
-	background-color: #fff;
-}
-.bg_badge5{
-	background-color: #fff;
+	background-color: #fa6e86;
 }

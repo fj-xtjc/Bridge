@@ -24,19 +24,22 @@ function product_btn_html(product_name){
 					'</div> ' +
 				'</div> ' +
 			'</button>').appendTo("#index_unicom");
-			$("button[data-appInfo]").click(function() {
-				location.href = "unicom_app_info.html?page=" + $(this).attr('name');
-			});
 		}
 	});
 }
 $(document).ready(function(){
-	$("#index_unicom").html("");
-	product_btn_html("XSZL");
-	product_btn_html("HYT");
-	product_btn_html("XFGC");
-	product_btn_html("GZZL");
-	product_btn_html("WJZS");
-	product_btn_html("QYYJ");
-	product_btn_html("ZHYY");
+	var bg_width = parseInt($(window).width()) - 80;
+	var bg_height = parseInt(bg_width*2/3 - 5) + "px";
+	$(".bg_unicom_app").css("height",$(window).height()-80);
+	// $("#index_unicom").html("");
+	// product_btn_html("XSZL");
+	// product_btn_html("HYT");
+	// product_btn_html("XFGC");
+	// product_btn_html("GZZL");
+	// product_btn_html("WJZS");
+	// product_btn_html("QYYJ");
+	// product_btn_html("ZHYY");
+	$("button[data-appInfo]").click(function() {
+		location.href = "unicom_app_info.html?page=" + $(this).attr('name');
+	});
 });
