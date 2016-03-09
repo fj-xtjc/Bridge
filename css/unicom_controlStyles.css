@@ -73,6 +73,9 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 30px;
 	background-color: #cccccc;
 }
+.Style_container .badge{
+	margin-right: 3px;
+}
 .Style_row1{
 	margin: 0;
 	padding-top: 20px;
