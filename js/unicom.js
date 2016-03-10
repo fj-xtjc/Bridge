@@ -21,15 +21,33 @@ function products_btn_html(result,i){
 }
 $(document).ready(function(){
 	$(window).resize(function() {
+		var font_size,fg_X,fg_Y;
 	  	var bg_width = $(window).width();
 		var bg_height = bg_width*0.5;
+
 		if (bg_height >= $(window).height() - 80) {
 			bg_height = $(window).height() - 80;
+			fg_X = bg_width * 0.1;
+			fg_Y = bg_height * 0.4;
+			
+		} else {
+			fg_X = bg_width * 0.09;
+			fg_Y = bg_height * 0.3;
 		};
 
+		font_size = bg_height * 0.1;
+
 		$(".bg_unicom_app").css("height",bg_height);
+		$(".marquee span").css("font-size",font_size);
+		$(".marquee").css("left",fg_X).css("top",fg_Y).css("height",$(".marquee span").height()+10);
 	});
 	$(window).resize();
+
+	alert($(".marquee span").html().length);
+	var iCount = setInterval(function(){
+		
+	},100);
+	clearInterval(iCount);
 
 	$("#index_unicom").html("");
 	$.ajax({
@@ -43,7 +61,7 @@ $(document).ready(function(){
 			};
 		},
 		error:function(){
-			alert("加载失败!");
+			//alert("加载失败!");
 		}
 	});
 
