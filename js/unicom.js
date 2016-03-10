@@ -19,12 +19,45 @@ function products_btn_html(result,i){
 		'</div> ' +
 	'</button>').appendTo("#index_unicom");
 }
-$(document).ready(function(){
-	$(window).resize(function() {
-		var font_size,fg_X,fg_Y;
-	  	var bg_width = $(window).width();
-		var bg_height = bg_width*0.5;
+function count_action(t_font,i){
+	var flag  =0;
+	for (var k = 0; k < i; k++) {
+		flag += 300 * t_font[k].length;
+	};
+	flag += i * 1500;
+	return flag;
+}
+function font_action(t_font,i,fg_X,fg_Y,font_size){
+	var font_action_value = setTimeout(function(){
+		//清空
+		$("#fg").html("");
+		//插入
+		for (var j = 0; j < t_font[i].length; j++) {
+			$("<span>").attr("fg_"+j,"").hide().html(t_font[i][j]).appendTo("#fg");
+		};
+		//确定宽度
+		$(".marquee").css("width",(font_size + 5) * t_font[i].length);
+		//出现
+		for (var j = 0; j < t_font[i].length; j++) {
+			$("span[fg_"+j+"]").delay(300*j).fadeIn(300);
+		};
+		//消失
+		for (var j = 0; j < t_font[i].length; j++) {
+			$("span[fg_"+j+"]").delay(300*(t_font[i].length-j+2)).fadeOut(300);
+		};
+	},count_action(t_font,i));
+}
 
+$(document).ready(function(){
+
+	//自适应参数
+	var font_size,fg_X,fg_Y,bg_width,bg_height;
+	//文字特效参数
+	var t_font = ["全方位的解决方案提供能力","随客户的发展而发展"];
+
+	$(window).resize(function() {
+		bg_width = $(window).width();
+		bg_height = bg_width*0.5;
 		if (bg_height >= $(window).height() - 80) {
 			bg_height = $(window).height() - 80;
 			fg_X = bg_width * 0.1;
@@ -34,20 +67,26 @@ $(document).ready(function(){
 			fg_X = bg_width * 0.09;
 			fg_Y = bg_height * 0.3;
 		};
-
-		font_size = bg_height * 0.1;
-
 		$(".bg_unicom_app").css("height",bg_height);
+
+		//初始化字体大小
+		font_size = bg_height * 0.08;
 		$(".marquee span").css("font-size",font_size);
-		$(".marquee").css("left",fg_X).css("top",fg_Y).css("height",$(".marquee span").height()+10);
+		//固定位置
+		$(".marquee").css("left",fg_X).css("top",fg_Y);
 	});
+	//加载窗口变化方法
 	$(window).resize();
 
-	alert($(".marquee span").html().length);
-	var iCount = setInterval(function(){
-		
-	},100);
-	clearInterval(iCount);
+	//加载文字动画
+	for (var i = 0; i < t_font.length; i++) {
+		font_action(t_font,i,fg_X,fg_Y,font_size);
+	};
+	var t_font_action = setInterval(function(){
+		for (var i = 0; i < t_font.length; i++) {
+			font_action(t_font,i,fg_X,fg_Y,font_size);
+		};
+	}, count_action(t_font,t_font.length));
 
 	$("#index_unicom").html("");
 	$.ajax({

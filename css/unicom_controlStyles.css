@@ -73,15 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 /* 定义一个走马灯动画 */
 .marquee {
 	position: absolute;
-	height: 100px;
-	width: 800px;
 	overflow: hidden;
-}
-
-.marquee span {
-	display: block;
-	position: relative;
-	font-size: 50px;
 	font-weight: bold;
 	color: #EC6C00;
 	text-shadow:1px 0px 10px #fff,
@@ -89,6 +81,11 @@ h1, h2, h3, h4, h5, h6 {
 				0px 1px 10px #fff,
 				0px -1px 10px #fff,
 				6px 4px 2px #000;
+}
+
+.marquee>span {
+	display: block;
+	position: relative;
 }
 /*子页面*/
 .Style_container{
