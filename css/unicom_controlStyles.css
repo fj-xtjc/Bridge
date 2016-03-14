@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
 .bg_unicom_app_info_top{
 	height: 40px;
 }
-/*自适应主要布局*/
+/*自适应布局*/
 html,body,.wrap{height: 100%;}
 body>.wrap{
 	height: auto;
