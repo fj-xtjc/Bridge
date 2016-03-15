@@ -9,7 +9,7 @@ var myScroll,
 function pullDownAction () {
    setTimeout(function () {   // <-- Simulate network congestion, remove setTimeout from production!
       var el, li, i;
-      el = document.getElementById('thelist');
+      el = document.getElementById('grouping_ul_groups');
 
       for (i=0; i<3; i++) {
          li = document.createElement('li');
@@ -25,7 +25,7 @@ function pullDownAction () {
 function pullUpAction () {
    setTimeout(function () {   // <-- Simulate network congestion, remove setTimeout from production!
       var el, li, i;
-      el = document.getElementById('thelist');
+      el = document.getElementById('grouping_ul_groups');
 
       for (i=0; i<3; i++) {
          li = document.createElement('li');
@@ -43,7 +43,7 @@ $(document).ready(function(){
 	pullDownOffset = pullDownEl.offsetHeight;
 	pullUpEl = document.getElementById('pullUp');   
 	pullUpOffset = pullUpEl.offsetHeight;
-	myScroll = new iScroll('test', {
+	myScroll = new iScroll('grouping_scroller_groups', {
       useTransition: true,
       topOffset: pullDownOffset,
       onRefresh: function () {
@@ -86,6 +86,6 @@ $(document).ready(function(){
          }
       }
    });
-	setTimeout(function () { document.getElementById('test').style.left = '0'; }, 800);
+	setTimeout(function () { document.getElementById('grouping_scroller_groups').style.left = '0'; }, 800);
 });
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
