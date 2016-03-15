@@ -27,11 +27,29 @@ section{
 
 .index_grouping .scroller{
 	padding: 0 !important;
+	background:none;
 }
 .index_grouping .scroller .row{
 	margin: 0 !important;
 }
-
+.index_grouping .scroller .row .teamName{
+	float: left;
+	font-size: 20px;
+	line-height: 32px;	
+}
+.index_grouping .scroller .row .playerName,.index_grouping .scroller .row .playerNameEnd{
+	float: left;
+	line-height: 32px;
+}
+.index_grouping .scroller .row .playerName:after{
+	content: "、";
+}
+.index_grouping .scroller .row .addPlayer{
+	float: left;
+	width: 32px;
+	height: 32px;
+	padding: 7px 9px;
+}
 /*自适应布局*/
 html,body,.wrap{height: 100%;}
 body>.wrap{

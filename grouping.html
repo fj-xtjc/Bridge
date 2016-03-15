@@ -45,41 +45,29 @@
          <div class="container">
             <div class="row index_grouping">
                <div class="scroller col-md-12 col-sm-12 col-xs-12" id="test">
-                  <div class="row">
+                  <div>
                      <div id="pullDown">
                         <span class="pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
                      </div>
-                     <ul class="list-group" id="thelist">
-                        <li class="list-group-item"><span class="badge">新</span>Pretty row 1</li>
-                        <li class="list-group-item"><span class="badge">对决</span>Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
-                        <li class="list-group-item">Pretty row 1</li>
+                     <ul class="list-group" id="grouping_ul_groups">
+                        <li class="list-group-item row" data-teamid="test">
+                           <div class="col-md-12 col-sm-12 col-xs-12">
+                              <strong class="teamName">MS08小队：</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人1</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人2</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人3</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人4</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人5</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人6</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人7</strong>
+                              <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人8</strong>
+                              <strong class="playerNameEnd" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人9</strong>
+                              <div class="addPlayer" data-toggle="modal" data-target="#modal_playerList">
+                                 <span class="glyphicon glyphicon-plus"></span>
+                              </div>
+                           </div>
+                        </li>
                      </ul>
                      <div class="col-md-6 col-sm-6 col-xs-6">
                         <button type="button" class="btn btn-default  btn-block btn-md" name="btn_login">完成</button>
@@ -106,7 +94,7 @@
    </div>
 
    <!-- 模态框（Modal） -->
-   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal fade container" id="modal_miniMenu" tabindex="-1" role="dialog" aria-labelledby="modalLabel_miniMenu" aria-hidden="true">
       <div class="modal-dialog">
          <div class="modal-content">
             <div class="modal-header">
@@ -114,21 +102,72 @@
                   data-dismiss="modal" aria-hidden="true">
                      &times;
                </button>
-               <h4 class="modal-title" id="myModalLabel">
-                  模态框（Modal）标题
+               <h4 class="modal-title" id="modalLabel_miniMenu">
+                  模版人名
                </h4>
             </div>
             <div class="modal-body">
-               在这里添加一些文本
+               <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                     <button type="button" class="btn btn-default btn-block btn-md">
+                        变更选手
+                     </button>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                     <button type="button" class="btn btn-default btn-block btn-md">删除选手
+                     </button>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                     <button type="button" class="btn btn-primary btn-block btn-md" data-dismiss="modal">关闭
+                     </button>
+                  </div>
+               </div>
             </div>
             <div class="modal-footer">
-               <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+            </div>
+         </div><!-- /.modal-content -->
+      </div>
+   </div><!-- /.modal -->
+
+   <div class="modal fade container" id="modal_playerList" tabindex="-1" role="dialog" aria-labelledby="modalLabel_playerList" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" 
+                  data-dismiss="modal" aria-hidden="true">
+                     &times;
+               </button>
+               <h4 class="modal-title" id="modalLabel_playerList">
+                  请勾选以下队员
+               </h4>
+            </div>
+            <div class="modal-body">
+               <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                     <ul class="list-group" id="grouping_ul_addPlayers">
+                        <li class="list-group-item">
+                           <input type="checkbox" name="_checkbox">真石祥仁
+                        </li>
+                        <li class="list-group-item">
+                           <input type="checkbox" name="_checkbox">真石祥仁2013
+                        </li>
+                        <li class="list-group-item">
+                           <input type="checkbox" name="_checkbox">真石祥仁2015
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" 
+                  data-dismiss="modal">关闭
                </button>
                <button type="button" class="btn btn-primary">
                   提交更改
                </button>
             </div>
          </div><!-- /.modal-content -->
+      </div>
    </div><!-- /.modal -->
 </body>
 </html>
