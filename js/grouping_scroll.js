@@ -3,7 +3,6 @@
 */
 var myScroll,
    pullDownEl, pullDownOffset,
-   pullUpEl, pullUpOffset,
    generatedCount = 0;
 
 function pullDownAction () {
@@ -22,27 +21,9 @@ function pullDownAction () {
    }, 1000);   // <-- Simulate network congestion, remove setTimeout from production!
 }
 
-function pullUpAction () {
-   setTimeout(function () {   // <-- Simulate network congestion, remove setTimeout from production!
-      var el, li, i;
-      el = document.getElementById('grouping_ul_groups');
-
-      for (i=0; i<3; i++) {
-         li = document.createElement('li');
-         li.className='list-group-item';
-         li.innerText = 'Generated row ' + (++generatedCount);
-         el.appendChild(li, el.childNodes[0]);
-      }
-      
-      myScroll.refresh();     // Remember to refresh when contents are loaded (ie: on ajax completion)
-   }, 1000);   // <-- Simulate network congestion, remove setTimeout from production!
-}
-
 $(document).ready(function(){
 	pullDownEl = document.getElementById('pullDown');
 	pullDownOffset = pullDownEl.offsetHeight;
-	pullUpEl = document.getElementById('pullUp');   
-	pullUpOffset = pullUpEl.offsetHeight;
 	myScroll = new iScroll('grouping_scroller_groups', {
       useTransition: true,
       topOffset: pullDownOffset,
@@ -50,10 +31,7 @@ $(document).ready(function(){
          if (pullDownEl.className.match('loading')) {
             pullDownEl.className = '';
             pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-         } else if (pullUpEl.className.match('loading')) {
-            pullUpEl.className = '';
-            pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
-         }
+         } 
       },
       onScrollMove: function () {
          if (this.y > 5 && !pullDownEl.className.match('flip')) {
@@ -64,25 +42,13 @@ $(document).ready(function(){
             pullDownEl.className = '';
             pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
             this.minScrollY = -pullDownOffset;
-         } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
-            pullUpEl.className = 'flip';
-            pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
-            this.maxScrollY = this.maxScrollY;
-         } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
-            pullUpEl.className = '';
-            pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
-            this.maxScrollY = pullUpOffset;
-         }
+         } 
       },
       onScrollEnd: function () {
          if (pullDownEl.className.match('flip')) {
             pullDownEl.className = 'loading';
             pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';          
             pullDownAction(); // Execute custom function (ajax call?)
-         } else if (pullUpEl.className.match('flip')) {
-            pullUpEl.className = 'loading';
-            pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';           
-            pullUpAction();   // Execute custom function (ajax call?)
          }
       }
    });
