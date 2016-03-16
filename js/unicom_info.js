@@ -35,7 +35,7 @@ function Product_Html(product_name){
             }
         },
         error:function(){
-            alert("错误");
+            alert("加载失败!");
         }
     })
 }
