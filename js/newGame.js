@@ -25,7 +25,7 @@ $(document).ready(function(){
 					success: function (result) {
 						if (result.result == "success") {
 							alert("比赛创建成功");
-							location.href = "grouping.html?";
+							location.href = "grouping.html?matchid="+result.matchid+"&teamnum=?"+$("input[name='matchteam']").val();
 							//alert(result.matchid);
 						}
 						else {

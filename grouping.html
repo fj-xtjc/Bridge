@@ -9,6 +9,7 @@
    <link href="css/grouping_scroll.css" rel="stylesheet">
 
    <script src="js/jquery-2.2.0.js"></script>
+   <script src="js/dataControl.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script src="js/grouping.js"></script>
    <script src="js/iscroll4.js"></script>
@@ -64,7 +65,7 @@
                               <strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人8</strong>
                               <strong class="playerNameEnd" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">石祥仁复制人9</strong>
                               <div class="addPlayer" data-toggle="modal" data-target="#modal_playerList">
-                                 <span class="glyphicon glyphicon-plus"></span>
+                                 <span name="num1" class="glyphicon glyphicon-plus"></span>
                               </div>
                            </div>
                         </li>
@@ -155,7 +156,7 @@
                <button type="button" class="btn btn-default" 
                   data-dismiss="modal">关闭
                </button>
-               <button type="button" class="btn btn-primary">
+               <button type="button" name="addmate_btn" class="btn btn-primary">
                   确认
                </button>
             </div>
