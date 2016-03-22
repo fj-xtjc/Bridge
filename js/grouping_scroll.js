@@ -20,13 +20,45 @@ function pullDownAction () {
       myScroll.refresh();     // Remember to refresh when contents are loaded (ie: on ajax completion)
    }, 1000);   // <-- Simulate network congestion, remove setTimeout from production!
 }
-var playernum;
+function listteammate(matchid,teamid){
+    $.ajax({
+        type: "get",
+        async: false,
+        data: {
+            "matchid":matchid,
+            "teamid":teamid
+        },
+        url: "http://10.206.106.27/BridgeCount/NewGame/listteammate.do",
+        dataType: "jsonp",
+        jsonp: "callbackparam",
+        jsonpCallback: "movieking",
+        success: function (result) {
+            $('<li>').addClass("list-group-item row").attr("data-teamid",teamid).appendTo("#grouping_ul_groups");
+            $('<div>').addClass("col-md-12 col-sm-12 col-xs-12").attr("id","div"+teamid).appendTo($("li[data-teamid="+teamid+"]"));
+            $("#div"+teamid).html('<strong class="teamName">'+teamid+'队:</strong>');
+            for(var i=0;i<result.result.length;i++){
+                $("#div"+teamid).append('<strong class="playerName" data-mateid='+result.result[i].mate_id+
+                    'data-toggle="modal" data-target="#modal_miniMenu">'+result.result[i].playername+'</strong>');
+            }
+            $("#div"+teamid).append('<div class="addPlayer" data-toggle="modal" data-target="#modal_playerList">'+
+                '<span name='+matchid+'class="glyphicon glyphicon-plus"></span></div>');
+        },
+        error: function () {
+            alert("失败");
+        }
+    });
+}
+var playernum,matchid,teamnum;
 $(document).ready(function(){
-
+     matchid=$.getUrlParam('matchid');
+     teamnum=$.getUrlParam('teamnum');
     //列出已参赛人员
-
+    $("#grouping_ul_groups").html("");
+   for(var i=1;i<=teamnum;i++){
+       listteammate(matchid,i);
+   }
     //列出人员
-    $("span[name='num1']").click(function(){
+    $("span[name="+matchid+"]").click(function(){
         $.ajax({
             type: "get",
             async: false,
@@ -57,7 +89,7 @@ $(document).ready(function(){
                     type: "get",
                     async: false,
                     data: {
-                        "matchid":$.getUrlParam('matchid'),
+                        "matchid":matchid,
                         "teamid":1,
                         "mateid":1
                     },
@@ -68,7 +100,7 @@ $(document).ready(function(){
                     success: function (result) {
                        if(result.result=="success"){
                            alert("chenggong");
-                           $("#grouping_ul_groups").children("li").children("div").append('<strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">'+$('"#checkbox'+i+'"').val()+'</strong>');
+                           $("#grouping_ul_groups").children("li").children("div").append('<strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">'+$("#checkbox"+i).val()+'</strong>');
                        }
                         else{
                            alert("添加队员错误");
