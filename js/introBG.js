@@ -309,7 +309,7 @@ DotInfo.BG = QS.extend({
 		this.stage = new PIXI.Stage("0x" + this.background);
 		// set the context and container
 		this.ctx = PIXI.autoDetectRenderer(this.size[0], this.size[1], null, true);
-		document.body.appendChild(this.ctx.view);
+		document.getElementById('main').appendChild(this.ctx.view);
 	    // finally query the various pixel ratios
 	    var devicePixelRatio = window.devicePixelRatio || 1;
 	    var backingStoreRatio = this.ctx.view.webkitBackingStorePixelRatio || this.ctx.view.mozBackingStorePixelRatio || this.ctx.view.msBackingStorePixelRatio || this.ctx.oBackingStorePixelRatio || this.ctx.backingStorePixelRatio || 1;

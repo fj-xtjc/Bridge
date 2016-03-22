@@ -18,14 +18,14 @@ $(document).ready(function(){
 						cardsnum: $("input[name='cardsnum']").val(),
 						matchtime: $("input[name='matchtime']").val()
 					},
-					url: "http://192.168.1.105:8082/BridgeCount/NewGame/addmatch.do",
+					url: "http://10.206.106.27/BridgeCount/NewGame/addmatch.do",
 					dataType: "jsonp",
 					jsonp: "callbackparam",
 					jsonpCallback: "movieking",
 					success: function (result) {
 						if (result.result == "success") {
 							alert("比赛创建成功");
-							location.href = "grouping.html?";
+							location.href = "grouping.html?matchid="+result.matchid+"&teamnum=?"+$("input[name='matchteam']").val();
 							//alert(result.matchid);
 						}
 						else {
