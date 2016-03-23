@@ -53,7 +53,7 @@ $(document).ready(function(){
      matchid=$.getUrlParam('matchid');
      teamnum=$.getUrlParam('teamnum');
     //列出已参赛人员
-    $("#grouping_ul_groups").html("");
+   // $("#grouping_ul_groups").html("");
    for(var i=1;i<=teamnum;i++){
        listteammate(matchid,i);
    }
@@ -114,7 +114,15 @@ $(document).ready(function(){
             }
         }
     });
+    //删除队员
+    $(".playerName").click(function(){
+        alert($(this).html());
 
+        $(".playerName").attr("data_id","xxx");
+    });
+    $(".playerName").click(function(){
+        $(".playerName").attr("data_id");
+    });
     //alert($.getUrlParam('matchid'));
 
 	pullDownEl = document.getElementById('pullDown');
