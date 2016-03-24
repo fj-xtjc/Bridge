@@ -21,6 +21,9 @@ function pullDownAction () {
    }, 1000);   // <-- Simulate network congestion, remove setTimeout from production!
 }
 function listteammate(matchid,teamid){
+    $('<li>').addClass("list-group-item row").attr("data-teamid",teamid).appendTo("#grouping_ul_groups");
+    $('<div>').addClass("col-md-12 col-sm-12 col-xs-12").attr("id","div"+teamid).appendTo($("li[data-teamid="+teamid+"]"));
+    $("#div"+teamid).html('<strong class="teamName">'+teamid+'队:</strong>');
     $.ajax({
         type: "get",
         async: false,
@@ -33,32 +36,31 @@ function listteammate(matchid,teamid){
         jsonp: "callbackparam",
         jsonpCallback: "movieking",
         success: function (result) {
-            $('<li>').addClass("list-group-item row").attr("data-teamid",teamid).appendTo("#grouping_ul_groups");
-            $('<div>').addClass("col-md-12 col-sm-12 col-xs-12").attr("id","div"+teamid).appendTo($("li[data-teamid="+teamid+"]"));
-            $("#div"+teamid).html('<strong class="teamName">'+teamid+'队:</strong>');
+
             for(var i=0;i<result.result.length;i++){
                 $("#div"+teamid).append('<strong class="playerName" data-mateid='+result.result[i].mate_id+
                     'data-toggle="modal" data-target="#modal_miniMenu">'+result.result[i].playername+'</strong>');
             }
-            $("#div"+teamid).append('<div class="addPlayer" data-toggle="modal" data-target="#modal_playerList">'+
-                '<span name='+matchid+'class="glyphicon glyphicon-plus"></span></div>');
         },
         error: function () {
-            alert("失败");
+            //alert("失败");
         }
     });
+    $("#div"+teamid).append('<div class="addPlayer" data-toggle="modal" data-target="#modal_playerList">' +
+        '<span class="glyphicon glyphicon-plus" name='+matchid+'></span></div>');
 }
 var playernum,matchid,teamnum;
 $(document).ready(function(){
      matchid=$.getUrlParam('matchid');
      teamnum=$.getUrlParam('teamnum');
     //列出已参赛人员
-   // $("#grouping_ul_groups").html("");
-   for(var i=1;i<=teamnum;i++){
+    $("#grouping_ul_groups").html("");
+   for(var i=1;i<teamnum+1;i++){
        listteammate(matchid,i);
    }
     //列出人员
     $("span[name="+matchid+"]").click(function(){
+        var a = $(this).attr();
         $.ajax({
             type: "get",
             async: false,
