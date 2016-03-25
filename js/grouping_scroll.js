@@ -36,7 +36,6 @@ function listteammate(matchid,teamid){
         jsonp: "callbackparam",
         jsonpCallback: "movieking",
         success: function (result) {
-
             for(var i=0;i<result.result.length;i++){
                 $("#div"+teamid).append('<strong class="playerName" data-mateid='+result.result[i].mate_id+
                     'data-toggle="modal" data-target="#modal_miniMenu">'+result.result[i].playername+'</strong>');
@@ -47,7 +46,7 @@ function listteammate(matchid,teamid){
         }
     });
     $("#div"+teamid).append('<div class="addPlayer" data-toggle="modal" data-target="#modal_playerList">' +
-        '<span class="glyphicon glyphicon-plus" name='+matchid+'></span></div>');
+        '<span class="glyphicon glyphicon-plus" plus name='+teamid+'></span></div>');
 }
 var playernum,matchid,teamnum;
 $(document).ready(function(){
@@ -55,12 +54,11 @@ $(document).ready(function(){
      teamnum=$.getUrlParam('teamnum');
     //列出已参赛人员
     $("#grouping_ul_groups").html("");
-   for(var i=1;i<teamnum+1;i++){
-       listteammate(matchid,i);
+   for(var i=0;i<teamnum;i++){
+       listteammate(matchid,i+1);
    }
     //列出人员
-    $("span[name="+matchid+"]").click(function(){
-        var a = $(this).attr();
+    $("span[plus]").click(function(){
         $.ajax({
             type: "get",
             async: false,
@@ -72,7 +70,7 @@ $(document).ready(function(){
                 $("#grouping_ul_addPlayers").html("");
                 for(var i=0;i<result.result.length;i++){
                     $('<li class="list-group-item">' +
-                        '<input type="checkbox" id="checkbox'+i+'">'+result.result[i].playername +
+                        '<input type="checkbox" id="checkbox'+i+'" data-mateid='+result.result[i].playerid+'>'+result.result[i].playername +
                         '</li>').appendTo("#grouping_ul_addPlayers");
                 }
                 playernum=result.result.length;
@@ -92,8 +90,8 @@ $(document).ready(function(){
                     async: false,
                     data: {
                         "matchid":matchid,
-                        "teamid":1,
-                        "mateid":1
+                        "teamid":$("#checkbox"+i).attr("data-mateid"),
+                        "mateid":$("#checkbox"+i).attr("data-mateid")
                     },
                     url: "http://10.206.106.27/BridgeCount/NewGame/addmate.do",
                     dataType: "jsonp",
@@ -109,7 +107,7 @@ $(document).ready(function(){
                        }
                     },
                     error: function () {
-                        alert("失败");
+                       // alert("失败");
                     }
                 });
                 //player[j++]=$("#checkbox"+i).val();
