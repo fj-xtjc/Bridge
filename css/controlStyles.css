@@ -82,11 +82,10 @@ section{
 	left: 10px;
 }
 .index_setSeats .seat p{
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
+	text-align: center;
 	text-overflow:ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
 }
 /*自适应布局*/
 html,body,.wrap{height: 100%;}
