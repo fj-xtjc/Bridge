@@ -36,17 +36,19 @@ function listteammate(matchid,teamid){
         jsonp: "callbackparam",
         jsonpCallback: "movieking",
         success: function (result) {
-            for(var i=0;i<result.result.length;i++){
-                $("#div"+teamid).append('<strong class="playerName" data-mateid='+result.result[i].mate_id+
-                    'data-toggle="modal" data-target="#modal_miniMenu">'+result.result[i].playername+'</strong>');
+            if(result.result!="null") {
+                for (var i = 0; i < result.result.length; i++) {
+                    $("#div" + teamid).append('<strong class="playerNameEnd" data-toggle="modal" data-target="#modal_miniMenu"'
+                        + 'data-mateid=' + result.result[i].mate_id + '>' + result.result[i].playername + '</strong>');
+                }
             }
         },
         error: function () {
             //alert("失败");
         }
     });
-    $("#div"+teamid).append('<div class="addPlayer" data-toggle="modal" data-target="#modal_playerList">' +
-        '<span class="glyphicon glyphicon-plus" plus name='+teamid+'></span></div>');
+    $("#div" + teamid).append('<div class="addPlayer" id="plus_div' + teamid + '" data-toggle="modal" data-target="#modal_playerList">' +
+        '<span class="glyphicon glyphicon-plus" plus data-teamid=' + teamid + '></span></div>');
 }
 var playernum,matchid,teamnum;
 $(document).ready(function(){
@@ -59,6 +61,9 @@ $(document).ready(function(){
    }
     //列出人员
     $("span[plus]").click(function(){
+        $("button[name='addmate_btn']").attr("data-teamid",$(this).attr("data-teamid"));
+        var temp_teamid=$(this).attr("data-teamid");
+        $("#grouping_ul_addPlayers").html("");
         $.ajax({
             type: "get",
             async: false,
@@ -67,11 +72,11 @@ $(document).ready(function(){
             jsonp: "callbackparam",
             jsonpCallback: "movieking",
             success: function (result) {
-                $("#grouping_ul_addPlayers").html("");
                 for(var i=0;i<result.result.length;i++){
                     $('<li class="list-group-item">' +
                         '<input type="checkbox" id="checkbox'+i+'" data-mateid='+result.result[i].playerid+'>'+result.result[i].playername +
                         '</li>').appendTo("#grouping_ul_addPlayers");
+                    $("#checkbox"+i).attr("data-teamid",temp_teamid);
                 }
                 playernum=result.result.length;
             },
@@ -90,7 +95,7 @@ $(document).ready(function(){
                     async: false,
                     data: {
                         "matchid":matchid,
-                        "teamid":$("#checkbox"+i).attr("data-mateid"),
+                        "teamid":$("#checkbox"+i).attr("data-teamid"),
                         "mateid":$("#checkbox"+i).attr("data-mateid")
                     },
                     url: "http://10.206.106.27/BridgeCount/NewGame/addmate.do",
@@ -99,11 +104,14 @@ $(document).ready(function(){
                     jsonpCallback: "movieking",
                     success: function (result) {
                        if(result.result=="success"){
-                           alert("chenggong");
-                           $("#grouping_ul_groups").children("li").children("div").append('<strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">'+$("#checkbox"+i).val()+'</strong>');
+                           //alert($("button[name='addmate_btn']").attr("data-teamid"));
+                           $("#plus_div"+ $("button[name='addmate_btn']").attr("data-teamid")).before('<strong class="playerNameEnd" data-mateid='+$("#checkbox"+i).attr("data-mateid")+' data-toggle="modal" data-target="#modal_miniMenu">'+$("#checkbox"+i).text()+'</strong>');
+                           alert("添加队员成功");
+                           $('button[data-dismiss="modal"]').trigger("click");
                        }
                         else{
                            alert("添加队员错误");
+                           $('button[data-dismiss="modal"]').trigger("click");
                        }
                     },
                     error: function () {
