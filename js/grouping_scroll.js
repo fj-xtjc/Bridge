@@ -20,13 +20,50 @@ function pullDownAction () {
       myScroll.refresh();     // Remember to refresh when contents are loaded (ie: on ajax completion)
    }, 1000);   // <-- Simulate network congestion, remove setTimeout from production!
 }
-var playernum;
+function listteammate(matchid,teamid){
+    $('<li>').addClass("list-group-item row").attr("data-teamid",teamid).appendTo("#grouping_ul_groups");
+    $('<div>').addClass("col-md-12 col-sm-12 col-xs-12").attr("id","div"+teamid).appendTo($("li[data-teamid="+teamid+"]"));
+    $("#div"+teamid).html('<strong class="teamName">'+teamid+'队:</strong>');
+    $.ajax({
+        type: "get",
+        async: false,
+        data: {
+            "matchid":matchid,
+            "teamid":teamid
+        },
+        url: "http://10.206.106.27/BridgeCount/NewGame/listteammate.do",
+        dataType: "jsonp",
+        jsonp: "callbackparam",
+        jsonpCallback: "movieking",
+        success: function (result) {
+            if(result.result!="null") {
+                for (var i = 0; i < result.result.length; i++) {
+                    $("#div" + teamid).append('<strong class="playerNameEnd" data-toggle="modal" data-target="#modal_miniMenu"'
+                        + 'data-mateid=' + result.result[i].mate_id + '>' + result.result[i].playername + '</strong>');
+                }
+            }
+        },
+        error: function () {
+            //alert("失败");
+        }
+    });
+    $("#div" + teamid).append('<div class="addPlayer" id="plus_div' + teamid + '" data-toggle="modal" data-target="#modal_playerList">' +
+        '<span class="glyphicon glyphicon-plus" plus data-teamid=' + teamid + '></span></div>');
+}
+var playernum,matchid,teamnum;
 $(document).ready(function(){
-
+     matchid=$.getUrlParam('matchid');
+     teamnum=$.getUrlParam('teamnum');
     //列出已参赛人员
-
+    $("#grouping_ul_groups").html("");
+   for(var i=0;i<teamnum;i++){
+       listteammate(matchid,i+1);
+   }
     //列出人员
-    $("span[name='num1']").click(function(){
+    $("span[plus]").click(function(){
+        $("button[name='addmate_btn']").attr("data-teamid",$(this).attr("data-teamid"));
+        var temp_teamid=$(this).attr("data-teamid");
+        $("#grouping_ul_addPlayers").html("");
         $.ajax({
             type: "get",
             async: false,
@@ -35,11 +72,11 @@ $(document).ready(function(){
             jsonp: "callbackparam",
             jsonpCallback: "movieking",
             success: function (result) {
-                $("#grouping_ul_addPlayers").html("");
                 for(var i=0;i<result.result.length;i++){
                     $('<li class="list-group-item">' +
-                        '<input type="checkbox" id="checkbox'+i+'">'+result.result[i].playername +
+                        '<input type="checkbox" id="checkbox'+i+'" data-mateid='+result.result[i].playerid+'>'+result.result[i].playername +
                         '</li>').appendTo("#grouping_ul_addPlayers");
+                    $("#checkbox"+i).attr("data-teamid",temp_teamid);
                 }
                 playernum=result.result.length;
             },
@@ -57,9 +94,9 @@ $(document).ready(function(){
                     type: "get",
                     async: false,
                     data: {
-                        "matchid":$.getUrlParam('matchid'),
-                        "teamid":1,
-                        "mateid":1
+                        "matchid":matchid,
+                        "teamid":$("#checkbox"+i).attr("data-teamid"),
+                        "mateid":$("#checkbox"+i).attr("data-mateid")
                     },
                     url: "http://10.206.106.27/BridgeCount/NewGame/addmate.do",
                     dataType: "jsonp",
@@ -67,22 +104,33 @@ $(document).ready(function(){
                     jsonpCallback: "movieking",
                     success: function (result) {
                        if(result.result=="success"){
-                           alert("chenggong");
-                           $("#grouping_ul_groups").children("li").children("div").append('<strong class="playerName" data-mateid="test" data-toggle="modal" data-target="#modal_miniMenu">'+$('"#checkbox'+i+'"').val()+'</strong>');
+                           //alert($("button[name='addmate_btn']").attr("data-teamid"));
+                           $("#plus_div"+ $("button[name='addmate_btn']").attr("data-teamid")).before('<strong class="playerNameEnd" data-mateid='+$("#checkbox"+i).attr("data-mateid")+' data-toggle="modal" data-target="#modal_miniMenu">'+$("#checkbox"+i).text()+'</strong>');
+                           alert("添加队员成功");
+                           $('button[data-dismiss="modal"]').trigger("click");
                        }
                         else{
                            alert("添加队员错误");
+                           $('button[data-dismiss="modal"]').trigger("click");
                        }
                     },
                     error: function () {
-                        alert("失败");
+                       // alert("失败");
                     }
                 });
                 //player[j++]=$("#checkbox"+i).val();
             }
         }
     });
+    //删除队员
+    $(".playerName").click(function(){
+        alert($(this).html());
 
+        $(".playerName").attr("data_id","xxx");
+    });
+    $(".playerName").click(function(){
+        $(".playerName").attr("data_id");
+    });
     //alert($.getUrlParam('matchid'));
 
 	pullDownEl = document.getElementById('pullDown');
