@@ -161,3 +161,51 @@ body>.wrap{
 		height: 300px;
     }
 }
+/*control*/
+/*可选框*/
+.CheckBox,.RadioBox {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: url(../img/checkbox.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.CheckBox {
+    background-position: 0 0;
+}
+.CheckBox.hover {
+    background-position: -24px 0;
+}
+.CheckBox.checked {
+    background-position: -48px 0;
+}
+.CheckBox.disabled {
+    background-position: -72px 0;
+    cursor: default;
+}
+.CheckBox.checked.disabled {
+    background-position: -96px 0;
+}
+
+.RadioBox {
+    background-position: -120px 0;
+}
+.RadioBox.hover {
+    background-position: -144px 0;
+}
+.RadioBox.checked {
+    background-position: -168px 0;
+}
+.RadioBox.disabled {
+    background-position: -192px 0;
+    cursor: default;
+}
+.RadioBox.checked.disabled {
+    background-position: -216px 0;
+}
