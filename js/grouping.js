@@ -179,6 +179,42 @@ $(document).ready(function(){
 		});
 		$("#modal_playerList").modal("hide");
 	});
+	//删除队员
+	$(".playerName").click(function(){
+		$("button[name='del_player']").attr("mate_id", $(this).attr("data-mateid"));
+		$("button[name='del_player']").attr("team_id", $(this).parent().parent().attr("data-teamid"));
+	});
+	$("button[name='del_player']").click(function(){
+		var flag_mateid= $(this).attr("data-mateid"),flag_teamid = $(this).attr("data-teamid"),flag_matchid = $.getUrlParam("matchid");
+		$.ajax({
+			type: "get",
+			async: false,
+			data: {
+				"matchid":flag_matchid,
+				"teamid":flag_teamid,
+				"mateid":flag_mateid
+			},
+			url: "http://10.206.106.27/BridgeCount/NewGame/deletemate.do",
+			dataType: "jsonp",
+			jsonp: "callbackparam",
+			jsonpCallback: "movieking"+flag_mateid,
+			success: function (result) {
+				if(result.result=="success"){
+					alert("删除队员成功");
+					$("#grouping_ul_groups").html("");
+					for(var i = 0;i < $.getUrlParam('teamnum');i++){
+						listteammate($.getUrlParam('matchid'),i+1);
+					}
+				}
+				else{
+					alert("删除队员失败");
+				}
+			},
+			error: function () {
+				// alert("失败");
+			}
+		});
+	});
 
 	$("button[name='btn_newGame']").click(function(){
 		//location.href = "grouping.html?";
